@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #4aa0ff, #633913);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+}
+
+.heading {
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Wrapper */
+.wrapper {
+  max-width: 450px;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Task Input Section */
+.task-input {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  position: relative;
+}
+
+.task-input i {
+  color: #2974c7;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.task-input input[type="text"] {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  margin-left: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Controls and Filters */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background: #f9f9f9;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+}
+
+.filters span {
+  font-size: 16px;
+  color: #444444;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.filters span.active {
+  color: #3C87FF;
+  font-weight: bold;
+}
+
+.clear-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #1798fb, #2D5CFE);
+  cursor: pointer;
+}
+
+/* Task List */
+.task-box {
+  list-style: none;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #f4f4f4;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.task label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.task input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.task p {
+  margin: 0;
+  color: #333;
+}
+
+/* Task Options */
+.settings {
+  display: flex;
+  gap: 8px;
+}
+
+.settings i {
+  font-size: 18px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.settings i:hover {
+  color: #2974c7;
+}
+
+/* Summary */
+.summary {
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+  margin-top: 10px;
+}

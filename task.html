@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo App | JavaScript</title>
+    <link rel="stylesheet" href="task.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="heading">
+        <h1>To-Do App</h1>
+    </div>
+    <div class="wrapper">
+        <div class="task-input">
+            <i class="fa fa-server" aria-hidden="true"></i>
+            <input type="text" placeholder="New task" id="txtItem">
+            <input type="text" placeholder="Task description" id="txtDescription">
+            <i class="fa fa-floppy-o" onclick="saveTask()" aria-hidden="true"></i>
+        </div>
+        <div id="summary" class="summary"></div>
+        <div class="controls">
+            <div class="filters">
+                <span class="active" id="all" onclick="setFilter('all')">All</span>
+                <span id="pending" onclick="setFilter('pending')">Pending</span>
+                <span id="completed" onclick="setFilter('completed')">Completed</span>
+            </div>
+            <button class="clear-btn" onclick="removeAll()">Clear All</button>
+        </div>
+        <ul class="task-box" id="myTaskList">
+            <!-- Tasks will be dynamically generated here -->
+        </ul>
+    </div>
+    <script src="task.js"></script>
+</body>
+</html>

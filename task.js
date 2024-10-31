@@ -5,23 +5,19 @@ let project = {
     createdDate: new Date().toLocaleString(),
     todos: []
 };
-let currentFilter = "all"; // Track current filter
-let editMode = false; // Track if we're editing a task
-let editTaskId = null; // Store the task ID if editing
-
-// Load project data from localStorage if available
+let currentFilter = "all"; 
+let editMode = false; 
+let editTaskId = null; 
 if (localStorage.getItem("projectData")) {
     project = JSON.parse(localStorage.getItem("projectData"));
     taskListArray = project.todos;
 }
-
-// Save or Update task
+k
 function saveTask() {
     const taskName = document.getElementById("txtItem").value.trim();
     const taskDescription = document.getElementById("txtDescription").value.trim();
     if (taskName) {
         if (editMode && editTaskId !== null) {
-            // Update existing task
             const taskIndex = taskListArray.findIndex(task => task.taskId === editTaskId);
             if (taskIndex !== -1) {
                 taskListArray[taskIndex].taskName = taskName;
@@ -31,7 +27,6 @@ function saveTask() {
             editMode = false;
             editTaskId = null;
         } else {
-            // Add new task
             const newTask = {
                 taskId: Date.now(),
                 taskName: taskName,
@@ -44,27 +39,21 @@ function saveTask() {
         }
         updateProjectData();
         renderTaskList();
-        document.getElementById("txtItem").value = ""; // Clear inputs after adding/updating task
+        document.getElementById("txtItem").value = ""; 
         document.getElementById("txtDescription").value = "";
     } else {
         alert("Please enter a task name.");
     }
 }
-
-// Update project data in localStorage
 function updateProjectData() {
     project.todos = taskListArray;
     localStorage.setItem("projectData", JSON.stringify(project));
 }
-
-// Render the list of tasks based on the current filter
 function renderTaskList() {
     const taskListElement = document.getElementById("myTaskList");
-    taskListElement.innerHTML = ""; // Clear previous list
-
+    taskListElement.innerHTML = ""; 
     let completedCount = 0;
     taskListArray.forEach((task) => {
-        // Apply filter
         if (currentFilter === "completed" && task.status !== "completed") return;
         if (currentFilter === "pending" && task.status !== "pending") return;
 
@@ -103,18 +92,15 @@ function renderTaskList() {
         if (task.status === "completed") completedCount++;
     });
 
-    // Update the summary
     document.getElementById("summary").textContent = `${completedCount} / ${taskListArray.length} tasks completed`;
 }
 
-// Delete a task
 function deleteTask(taskId) {
     taskListArray = taskListArray.filter(task => task.taskId !== taskId);
     updateProjectData();
     renderTaskList();
 }
 
-// Edit a task
 function editTask(taskId) {
     const task = taskListArray.find(task => task.taskId === taskId);
     if (task) {
@@ -124,8 +110,6 @@ function editTask(taskId) {
         editTaskId = taskId;
     }
 }
-
-// Toggle task status between pending and completed
 function toggleTaskStatus(taskId) {
     const task = taskListArray.find(task => task.taskId === taskId);
     if (task) {
@@ -135,27 +119,22 @@ function toggleTaskStatus(taskId) {
         renderTaskList();
     }
 }
-
-// Clear all tasks
 function removeAll() {
     taskListArray = [];
     updateProjectData();
     renderTaskList();
 }
 
-// Set filter and re-render list
 function setFilter(filter) {
     currentFilter = filter;
     renderTaskList();
 
-    // Update active filter style
     document.getElementById("all").classList.remove("active");
     document.getElementById("pending").classList.remove("active");
     document.getElementById("completed").classList.remove("active");
     document.getElementById(filter).classList.add("active");
 }
 
-// Initial render on page load
 document.addEventListener("DOMContentLoaded", () => {
     renderTaskList();
     document.getElementById("all").addEventListener("click", () => setFilter("all"));

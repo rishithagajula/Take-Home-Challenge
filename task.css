@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-/* General Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -26,7 +26,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Wrapper */
 .wrapper {
   max-width: 450px;
   width: 100%;
@@ -36,7 +35,6 @@ body {
   padding: 20px;
 }
 
-/* Task Input Section */
 .task-input {
   display: flex;
   align-items: center;
@@ -61,7 +59,6 @@ body {
   outline: none;
 }
 
-/* Controls and Filters */
 .controls {
   display: flex;
   justify-content: space-between;
@@ -99,7 +96,6 @@ body {
   cursor: pointer;
 }
 
-/* Task List */
 .task-box {
   list-style: none;
   max-height: 300px;
@@ -132,7 +128,6 @@ body {
   color: #333;
 }
 
-/* Task Options */
 .settings {
   display: flex;
   gap: 8px;
@@ -149,7 +144,6 @@ body {
   color: #2974c7;
 }
 
-/* Summary */
 .summary {
   font-size: 16px;
   color: #555;
